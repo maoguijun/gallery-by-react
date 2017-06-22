@@ -12,7 +12,7 @@ require('styles/App.scss');
 var imageDatas = require('../data/imageDatas.json');
 
 // 利用自执行函数， 将图片名信息转成图片URL路径信息
-imageDatas = (function genImageURL(imageDatasArr) {
+(function genImageURL(imageDatasArr) {
     for (var i = 0, j = imageDatasArr.length; i < j; i++) {
         var singleImageData = imageDatasArr[i];
 
@@ -83,7 +83,9 @@ class ImgFigure extends React.Component{
                      alt={this.props.data.title}
                 />
                 <figcaption>
-                    <h2 className="img-title">{this.props.data.title}</h2>
+                    <h2 className="img-title">
+                        {this.props.data.title}
+                    </h2>
                     <div className="img-back" onClick={this.handleClick.bind(this)}>
                       <p>
                         {this.props.data.desc}
@@ -113,11 +115,11 @@ class ControllerUnit extends React.Component{
 
         // 如果对应的是居中的图片，显示控制按钮的居中态
         if (this.props.arrange.isCenter) {
-            controlelrUnitClassName += 'is-center';
+            controlelrUnitClassName += ' is-center';
 
             // 如果同时对应的是翻转图片， 显示控制按钮的翻转态
             if (this.props.arrange.isInverse) {
-                controlelrUnitClassName += 'is-inverse';
+                controlelrUnitClassName += ' is-inverse';
             }
         }
 
@@ -239,36 +241,36 @@ class GalleryByReactApp extends React.Component{
         });
   }
 
-  /*
-   * 利用arrange函数， 居中对应index的图片
-   * @param index, 需要被居中的图片对应的图片信息数组的index值
-   * @returns {Function}
-   */
-  center (index) {
-    return function () {
-      this.rearrange(index);
-    }.bind(this);
-  }
+    /*
+    * 利用arrange函数， 居中对应index的图片
+    * @param index, 需要被居中的图片对应的图片信息数组的index值
+    * @returns {Function}
+    */
+    center (index) {
+        return function () {
+        this.rearrange(index);
+        }.bind(this);
+    }
 
-  // getInitialState: function () {
-  //   return {
-  //       imgsArrangeArr: [
-  //           /*{
-  //               pos: {
-  //                   left: '0',
-  //                   top: '0'
-  //               },
-  //               rotate: 0,    // 旋转角度
-  //               isInverse: false,    // 图片正反面
-  //               isCenter: false,    // 图片是否居中
-  //           }*/
-  //       ]
-  //   };
-  // },
+    constructor(props){
+        // 如果你用到了constructor就必须写super(),是用来初始化this的，可以绑定事件到this上;
+        super(props);
+        this.state={imgsArrangeArr:[
+            {
+                pos: {
+                    left: '0',
+                    top: '0'
+                },
+                rotate: 0,    // 旋转角度
+                isInverse: false,    // 图片正反面
+                isCenter: false    // 图片是否居中
+            }
+        ]};
+    }
   state={imgsArrangeArr:[]};
 
-  // 组件加载以后， 为每张图片计算其位置的范围
-  componentDidMount () {
+    // 组件加载以后， 为每张图片计算其位置的范围
+    componentDidMount () {
 
     // 首先拿到舞台的大小
     var stageDOM = ReactDOM.findDOMNode(this.refs.stage),
@@ -344,6 +346,6 @@ class GalleryByReactApp extends React.Component{
     );
   }
 }
-// React.render(<GalleryByReactApp />, document.getElementById('content')); // jshint ignore:line
+
 
 module.exports = GalleryByReactApp;

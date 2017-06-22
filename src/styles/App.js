@@ -44,12 +44,12 @@ export default StyleSheet.create({
     'backgroundColor': '#fff',
     'boxSizing': 'border-box',
     'cursor': 'pointer',
-    'transformOrigin': '0 50% 0',
+    'transformOrigin': '50% 50%',
     'transformStyle': 'preserve-3d',
     'transition': 'transform .6s ease-in-out, left .6s ease-in-out, top .6s ease-in-out'
   },
   'img-figureis-inverse': {
-    'transform': 'translate(320px) rotateY(180deg)'
+    'transform': 'rotateY(180deg)'
   },
   'img-figure img': {
     'width': [{ 'unit': 'px', 'value': 480 }],
