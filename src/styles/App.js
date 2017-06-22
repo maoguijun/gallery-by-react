@@ -23,7 +23,7 @@ export default StyleSheet.create({
   'stage': {
     'position': 'relative',
     'width': [{ 'unit': '%H', 'value': 1 }],
-    'height': [{ 'unit': 'px', 'value': 680 }]
+    'height': [{ 'unit': 'px', 'value': 780 }]
   },
   // stage -- end
   // image -- start

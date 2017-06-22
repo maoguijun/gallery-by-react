@@ -8,9 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
-  <div id="app" class = "content">APPLICATION CONTENT</div>
+  <!--[if lt IE 8]>
+    <p class="brosehappy">
+      您现在正在使用一个<strong>过旧</strong>的浏览器。<br>
+      请<a href="http://browsehappy.com">更新您的浏览器</a>
+    </p>
+  <![endif]-->
+  <div id="app" class = "content">
+    <h1>If you can see this, something is broken (or JS is not enable)!!</h1>
+  </div>
 
-  <script>__REACT_DEVTOOLS_GLOBAL_HOOK__ = parent.__REACT_DEVTOOLS_GLOBAL_HOOK__</script>
-  <script type="text/javascript" src="../dist/assets/app.js"></script>
+  <script>
+    // 这个是解决webpack页面的通信问题
+    __REACT_DEVTOOLS_GLOBAL_HOOK__ = parent.__REACT_DEVTOOLS_GLOBAL_HOOK__
+  </script>
+  <script type="text/javascript" src="/assets/app.js"></script>
 </body>
 </html>
