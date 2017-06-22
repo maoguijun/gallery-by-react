@@ -15,6 +15,7 @@
     "serve": "node server.js --env=dev",
     "serve:dist": "node server.js --env=dist",
     "start": "node server.js --env=dev",
+    "build": "webpack",
     "test": "karma start",
     "test:watch": "karma start --autoWatch=true --singleRun=false"
   },
